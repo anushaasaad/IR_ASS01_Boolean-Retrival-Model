@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Boolean Retrieval Model</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/display_style.css') }}" type = "text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    button{
+    margin:10px 20px;
+    padding:5px 30px;
+    border-radius: 20px;
+    background-color:white;
+    border: 2px solid white;
+    color:black;
+}
+button:hover{
+    background-color: transparent;
+    color: white;
+
+}
+input{
+    padding:5px 50px;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+}
+</style>
+  <body class="w3" style="background-color:#082032;">
+    <div class="w3-container">
+        <div class="d-flex justify-content-center">
+                <form method="POST" action="{{ url_for('upload') }}" class="searchbar" style="margin-top: 10px; margin-right: -10px;">
+                    <input type="text" class="search_input" placeholder="Search here" name="query"/>
+                    <button class ="search_icon" type="submit"style="margin-top: -40px;"type="submit">Search</button>
+                  </form>
+        </div>
+    </div>
+    <div class="w3-container w3" style="background-color: #334756; color:white">
+        <p><b>Total {{num_docs}} Documents retrieved</b></p>
+    </div>
+    <div class="w3-container w3-padding-large w3" style="background-color:#082032;">
+      <div class="w3-row-padding w3-grayscale">
+        {% for key, value in dictionary.items() %}
+        <div class="w3-col w3-margin-bottom" style="width:10%">
+          <div class="w3" style="background-color:#F7F6F2">
+            <div class="w3-container">
+              <h3 class="w3-text-black"><b>{{key}}</b></h3>
+             </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+  </body>
+</html>
